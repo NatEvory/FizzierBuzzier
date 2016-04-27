@@ -9,6 +9,14 @@ public class FizzBuzzTest {
 	public void whenFizzBuzzIsPassedANumberItShouldReturnThatNumber(){
 		FizzBuzz fizzBuzz = new FizzBuzz();
 		assertEquals("FizzBuzz should return 1","1",fizzBuzz.fizz(1));
+		assertEquals("FizzBuzz should return 2","2",fizzBuzz.fizz(2));
+	}
+	
+	@Test
+	public void whenFizzBuzzIsPassedAMultipleOf3ItShouldReturnFizz(){
+		FizzBuzz fizzBuzz = new FizzBuzz();
+		assertEquals("FizzBuzz should return 'fizz' when passed 3","fizz",fizzBuzz.fizz(3));
+		assertEquals("FizzBuzz should return 'fizz' when passed 6","fizz",fizzBuzz.fizz(6));
 	}
 	
 }
