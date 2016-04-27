@@ -1,15 +1,18 @@
 package com.natevory.kata.fizzier;
 
 public class FizzBuzz {
+	
+	private NumberReactor reactor;
+	
+	public FizzBuzz(){
+		StringFactorReactor fizzbuzzReactor = new StringFactorReactor("fizzbuzz",15);
+		StringFactorReactor fizzReactor = new StringFactorReactor("fizz",3);
+		StringFactorReactor buzzReactor = new StringFactorReactor("buzz",5);
+		EchoNumberReactor defaultReactor = new EchoNumberReactor();
+		this.reactor = new CompoundNumberReactor(fizzbuzzReactor,fizzReactor,buzzReactor,defaultReactor);
+	}
+	
 	public String fizz(Number number){
-		int intNumber = number.intValue();
-		if(intNumber % 3 == 0 && intNumber % 5 == 0)
-			return "fizzbuzz";
-		if(intNumber % 3 == 0)
-			return "fizz";
-		if(intNumber % 5 == 0)
-			return "buzz";
-		
-		return number.toString();
+		return reactor.react(number);
 	}
 }
